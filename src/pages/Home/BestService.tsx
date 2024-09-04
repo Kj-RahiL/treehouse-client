@@ -13,7 +13,7 @@ const BestService = () => {
       </div>
       {/*best service card card */}
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5 lg:gap-10">
         <div className="card shadow-xl">
           <div className="card-body">
             <div className="flex justify-center">
