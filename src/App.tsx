@@ -1,15 +1,15 @@
-
-import './App.css'
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navigation/Navbar";
+import Footer from "./components/Navigation/Footer";
 
 function App() {
-
-
   return (
     <>
-      <h1 className='text-3xl font-bold underline text-center'>Hello World</h1>
- 
+      <Navbar />
+      <Outlet />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
