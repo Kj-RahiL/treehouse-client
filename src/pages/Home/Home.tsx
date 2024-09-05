@@ -4,7 +4,7 @@ import NewsLetter from "./NewsLetter";
 
 const Home = () => {
     return (
-        <div>
+        <div className="container mx-auto">
            <Hero/>
            <BestService/>
            <NewsLetter/>

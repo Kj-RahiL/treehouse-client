@@ -1,0 +1,103 @@
+[
+    {
+      "id": 1,
+      "title": "Japanese Maple",
+      "price": 45.99,
+      "category": "Trees",
+      "quantity": 15,
+      "description": "A beautiful deciduous tree with delicate red leaves.",
+      "rating": 4.8,
+      "image": "https://example.com/images/japanese_maple.jpg"
+    },
+    {
+      "id": 2,
+      "title": "English Lavender",
+      "price": 12.99,
+      "category": "Herbs",
+      "quantity": 50,
+      "description": "A fragrant herb perfect for gardens and aromatic oils.",
+      "rating": 4.7,
+      "image": "https://example.com/images/english_lavender.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Blueberry Bush",
+      "price": 29.99,
+      "category": "Shrubs",
+      "quantity": 30,
+      "description": "Produces delicious blueberries every summer.",
+      "rating": 4.9,
+      "image": "https://example.com/images/blueberry_bush.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Aloe Vera",
+      "price": 9.99,
+      "category": "Succulents & Cacti",
+      "quantity": 100,
+      "description": "A medicinal plant known for its healing properties.",
+      "rating": 4.6,
+      "image": "https://example.com/images/aloe_vera.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Golden Bamboo",
+      "price": 25.50,
+      "category": "Grasses & Ferns",
+      "quantity": 20,
+      "description": "A fast-growing bamboo perfect for creating privacy screens.",
+      "rating": 4.5,
+      "image": "https://example.com/images/golden_bamboo.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Orchid",
+      "price": 15.99,
+      "category": "Flowers",
+      "quantity": 60,
+      "description": "A delicate flower known for its vibrant colors and elegance.",
+      "rating": 4.8,
+      "image": "https://example.com/images/orchid.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Strawberry Plant",
+      "price": 5.99,
+      "category": "Fruit & Vegetables",
+      "quantity": 80,
+      "description": "Produces sweet and juicy strawberries, ideal for gardens.",
+      "rating": 4.7,
+      "image": "https://example.com/images/strawberry_plant.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Snake Plant",
+      "price": 18.99,
+      "category": "House Plants",
+      "quantity": 40,
+      "description": "A hardy plant that purifies air, perfect for indoor spaces.",
+      "rating": 4.9,
+      "image": "https://example.com/images/snake_plant.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Rose Bush",
+      "price": 22.50,
+      "category": "Shrubs",
+      "quantity": 25,
+      "description": "A classic flowering shrub known for its beautiful blooms.",
+      "rating": 4.8,
+      "image": "https://example.com/images/rose_bush.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Creeping Thyme",
+      "price": 8.99,
+      "category": "Ground Covers",
+      "quantity": 70,
+      "description": "A low-growing herb perfect for ground cover and pathways.",
+      "rating": 4.6,
+      "image": "https://example.com/images/creeping_thyme.jpg"
+    }
+  ]
+  
