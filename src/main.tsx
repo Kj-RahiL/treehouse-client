@@ -6,6 +6,8 @@ import { store } from "./redux/store.ts";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/routes.tsx";
 import { HelmetProvider } from 'react-helmet-async';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,7 +15,7 @@ createRoot(document.getElementById("root")!).render(
       <HelmetProvider>
         <div className="max-w-screen mx-auto">
           <RouterProvider router={router} />
-          {/* <ToastContainer></ToastContainer> */}
+          <ToastContainer position="top-right" autoClose={3000} />
         </div>
       </HelmetProvider>
     </Provider>

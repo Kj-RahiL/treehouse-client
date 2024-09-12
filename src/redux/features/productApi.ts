@@ -2,10 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const productApi = createApi({
   reducerPath: 'productApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com' }), // Base API URL
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api/v1' }), // Base API URL
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => 'posts', // Specific endpoint to fetch data
+      query: () => 'product', // Specific endpoint to fetch data
     }),
   }),
 });

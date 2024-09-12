@@ -4,7 +4,7 @@ import { LiaHandsHelpingSolid } from "react-icons/lia";
 import { FaShippingFast } from "react-icons/fa";
 const BestService = () => {
   return (
-    <div className="bg-[#e6ebe8 bg-opacity-90 py-20">
+    <div className="bg-[#e6ebe8] bg-opacity-90 py-20">
       <div>
         <img src={leaf} alt="leaf" className="mx-auto w-auto lg:w-12" />
         <h2 className="text-center text-2xl md:text-4xl lg:text-6xl font-semibold text-[#062810]">

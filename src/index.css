@@ -18,3 +18,10 @@
 .color-pri{
   color: #083214;
 }
+
+.glassMor{
+  border-radius: 12px;
+  background: #ffffff1a;
+  border: 1px solid #fffff2f0;
+  backdrop-filter: blur(16px) saturate(120%);
+}
