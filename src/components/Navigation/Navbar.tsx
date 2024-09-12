@@ -128,18 +128,18 @@ const Navbar = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-[#04190a] text-white min-h-full w-80 p-4 glass">
+          <ul className="menu bg-[#04190a] text-white min-h-full w-48 p-4 glass">
             {/* Sidebar content here */}
             {link}
           </ul>
         </div>
-        <a className="text-[#083214] font-extrabold tracking-wider text-white-border text-2xl logo-font flex justify-center items-center">
+        <Link to='/' className="text-[#083214] font-extrabold tracking-wider text-white-border text-base md:text-2xl logo-font flex justify-center items-center">
           Tree
           <span>
             <img src={leaf} alt="leaf" />
           </span>
           House
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium text-base glassMore">
@@ -147,9 +147,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <BsSearch className="text-2xl font-thin mr-10" />
-        <Link to='/checkout' className="relative mr-10 p-2">
-          <BsCart className="text-2xl" />
+        <BsSearch className="text-base md:text-2xl font-thin mr-4 md:mr-10 " />
+        <Link to='/checkout' className="relative mr-2 md:mr-10 p-2">
+          <BsCart className="text-base md:text-2xl" />
           <span className="absolute -right-1 -top-2 flex size-5 items-center justify-center rounded-full bg-red-500 text-center text-[10px] text-white">
             {products.length}
           </span>

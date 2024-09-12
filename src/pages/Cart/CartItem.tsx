@@ -2,9 +2,15 @@
 import { MdDelete } from "react-icons/md";
 import { deleteProduct, updateQuantity } from "../../redux/features/cartSlice";
 import { useAppDispatch } from "../../redux/hooks";
+type Product = {
+  _id: string;
+  title: string;
+  price: number;
+  quantity: number;
+  image: string;
+};
 
-
-const CartItem = ({product}) => {
+const CartItem = ({product}: { product: Product }) => {
 
   const dispatch = useAppDispatch();
   const handleQuantity = (type: string, id: string) => {
