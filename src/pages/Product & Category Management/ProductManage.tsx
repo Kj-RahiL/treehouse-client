@@ -73,7 +73,7 @@ const ProductManage = () => {
                   {product.stock}
                 </td>
                 <td className=" text-xs md:text-base">
-                  <UpdateProduct />
+                  <UpdateProduct id={product._id}/>
                 </td>
                 <td className="text-xs md:text-base ">
                   <button

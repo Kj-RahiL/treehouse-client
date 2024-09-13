@@ -9,6 +9,11 @@ export const productApi = createApi({
       query: () => "product", // Specific endpoint to fetch data
       providesTags: ["Products"],
     }),
+
+    getProductById: builder.query({
+      query: (id) => `product/${id}`, // Fetch a product by ID
+    }),
+    
     // create new product
     createProduct: builder.mutation({
       query: (newProduct) => ({
@@ -42,6 +47,7 @@ export const productApi = createApi({
 
 export const {
   useGetProductsQuery,
+  useGetProductByIdQuery,
   useCreateProductMutation,
   useUpdateProductMutation,
   useDeleteProductMutation,

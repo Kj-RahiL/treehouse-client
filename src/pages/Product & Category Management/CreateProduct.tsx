@@ -11,14 +11,14 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const CreateProduct = () => {
   const [openModal, setOpenModal] = useState(false);
   const [createProduct] = useCreateProductMutation();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   console.log(errors)
 
   const onSubmit = async (data: any) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    console.log(data, formData);
+    // console.log(data, formData);
     try {
       const response = await fetch(image_hosting_api, {
         method: "POST",
@@ -29,8 +29,8 @@ const CreateProduct = () => {
         throw new Error("Network response was not ok");
       }
       const resData = await response.json();
-      console.log("Image :", resData);
-      console.log("Image URL:", resData.data.url);
+    //   console.log("Image :", resData);
+    //   console.log("Image URL:", resData.data.url);
       if (resData.success) {
         const newProduct = {
           product: {
@@ -46,6 +46,7 @@ const CreateProduct = () => {
 
         await createProduct(newProduct).unwrap();
         toast.success(`Product is created successful`);
+        reset()
       }
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -69,7 +70,7 @@ const CreateProduct = () => {
         >
           <div
             onClick={(e_) => e_.stopPropagation()}
-            className="w-3/4 lg:w-3/5 my-10 mx-auto px-5 md:px-10 lg:px-20 py-5 bg-white/70 card overflow-y-auto max-h-[90vh] shadow-green-900 shadow"
+            className="w-3/4 lg:w-3/5 my-10 mx-auto px-5 md:px-10 lg:px-20 py-5 bg-white/70 card overflow-y-auto max-h-[90vh] shadow-green-900 shadow-md"
           >
             <form onSubmit={handleSubmit(onSubmit)}>
               <button
@@ -220,7 +221,7 @@ const CreateProduct = () => {
               <input
                 className="btn btn-block normal-case hover:bg-green-900 bg-green-700 text-white"
                 type="submit"
-                value="Apply"
+                value="Create Product"
               />
             </form>
           </div>
