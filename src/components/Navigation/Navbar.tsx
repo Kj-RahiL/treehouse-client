@@ -80,6 +80,7 @@ const link = (
         Blog
       </NavLink>
     </li>
+   */}
     <li>
       <NavLink
         to="/contact"
@@ -94,7 +95,7 @@ const link = (
       >
         Contact
       </NavLink>
-    </li> */}
+    </li> 
   </>
 );
 
