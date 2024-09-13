@@ -6,14 +6,38 @@ export const productApi = createApi({
   tagTypes: ["Products"],
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => "product", // Specific endpoint to fetch data
+      query: ({ searchTerm, category, sort, page = 1, limit = 10 }) => {
+        console.log(searchTerm, category, sort);
+        const params = new URLSearchParams();
+        if (searchTerm) {
+          params.append("searchTerm", searchTerm);
+        }
+        if (category) {
+          params.append("category", category);
+        }
+        if (sort) {
+          params.append("sort", sort);
+        }
+
+        if (page) {
+          params.append("page", page.toString());
+        }
+        if (limit) {
+          params.append("limit", limit.toString());
+        }
+        return {
+          url: `/product`,
+          method: "GET",
+          params: params,
+        };
+      },
       providesTags: ["Products"],
     }),
 
     getProductById: builder.query({
       query: (id) => `product/${id}`, // Fetch a product by ID
     }),
-    
+
     // create new product
     createProduct: builder.mutation({
       query: (newProduct) => ({

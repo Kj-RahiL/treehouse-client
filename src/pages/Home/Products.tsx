@@ -1,28 +1,34 @@
 import React, { useState } from "react";
-import { useGetProductsQuery } from "../../../redux/features/productApi";
-import { useAppDispatch } from "../../../redux/hooks";
-import { TProduct } from "../../../dataType/dataType";
-import { addToCart } from "../../../redux/features/cartSlice";
 import { Link } from "react-router-dom";
-interface ProductListingProps {
-  selectedCategory: string;
-}
-
-const ProductListing: React.FC<ProductListingProps> = ({
-  selectedCategory,
-}) => {
+import { useAppDispatch } from "../../redux/hooks";
+import { useGetProductsQuery } from "../../redux/features/productApi";
+import { addToCart } from "../../redux/features/cartSlice";
+import { TProduct } from "../../dataType/dataType";
+const categories = [
+  "All Products",
+  "Artificial Grass",
+  "Bonsai Plant",
+  "Flower Plants",
+  "Foreign Plants",
+  "Herbal Plants",
+  "Outdoor Plants",
+  "Woody Plants",
+  "Fruit Plants",
+];
+const Products = () => {
   const dispatch = useAppDispatch();
 
   // State for search, filter, sort, and pagination
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("");
+  const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
   const [limit] = useState(10);
 
   const { data, error, isLoading } = useGetProductsQuery({
     searchTerm,
     sort,
-    category: selectedCategory,
+    category: category === "All Products" ? "" : category,
     page,
     limit,
   });
@@ -32,11 +38,16 @@ const ProductListing: React.FC<ProductListingProps> = ({
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
     setSearchTerm(e.target.value);
   };
 
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSort(e.target.value);
+  };
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCategory(e.target.value);
   };
 
   const handlePageChange = (newPage: number) => {
@@ -58,6 +69,18 @@ const ProductListing: React.FC<ProductListingProps> = ({
             onChange={handleSearchChange}
             className="border rounded-lg px-3 py-2"
           />
+
+          <select
+            value={category}
+            onChange={handleCategoryChange}
+            className="border rounded-lg px-3 py-2"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
 
           <select
             value={sort}
@@ -130,7 +153,6 @@ const ProductListing: React.FC<ProductListingProps> = ({
           ))}
         </div>
       )}
-
       {/* Pagination Controls */}
       <div className="flex justify-center mt-8">
         <button
@@ -151,4 +173,4 @@ const ProductListing: React.FC<ProductListingProps> = ({
   );
 };
 
-export default ProductListing;
+export default Products;

@@ -2,7 +2,7 @@ import { useAppSelector } from "../../redux/hooks";
 
 
 const OrderSummary = () => {
-    const {products, total, subTotal, shipping} = useAppSelector((store) => store.cart);
+    const {products, total, subTotal} = useAppSelector((store) => store.cart);
     console.log(products)
   return (
     <div className="bg-white p-6 shadow-md rounded-md border-t-4 border-green-500">

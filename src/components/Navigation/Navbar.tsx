@@ -1,7 +1,8 @@
-import { BsCart, BsSearch } from "react-icons/bs";
+import { BsCart } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import leaf from "../../assets/leaf.png";
 import { useAppSelector } from "../../redux/hooks";
+// import SearchModal from "./searchModal";
 const link = (
   <>
     <li>
@@ -49,7 +50,7 @@ const link = (
         ProductManage
       </NavLink>
     </li>
-    <li>
+    {/* <li>
       <NavLink
         to="/about"
         style={({ isActive }) => {
@@ -93,7 +94,7 @@ const link = (
       >
         Contact
       </NavLink>
-    </li>
+    </li> */}
   </>
 );
 
@@ -147,7 +148,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <BsSearch className="text-base md:text-2xl font-thin mr-4 md:mr-10 " />
+         {/* <SearchModal/> */}
         <Link to='/proceed' className="relative mr-2 md:mr-10 p-2">
           <BsCart className="text-base md:text-2xl" />
           <span className="absolute -right-1 -top-2 flex size-5 items-center justify-center rounded-full bg-red-500 text-center text-[10px] text-white">

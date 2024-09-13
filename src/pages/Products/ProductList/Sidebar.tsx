@@ -1,11 +1,33 @@
 import React, { useState } from "react";
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
-
-const Sidebar = () => {
+interface SidebarProps {
+  setSelectedCategory: (category: string) => void;
+}
+const categories = [
+  "All Products",
+  "Artificial Grass",
+  "Bonsai Plant",
+  "Flower Plants",
+  "Foreign Plants",
+  "Herbal Plants",
+  "Outdoor Plants",
+  "Woody Plants",
+  "Fruit Plants",
+];
+const Sidebar: React.FC<SidebarProps> = ({ setSelectedCategory }) => {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [activeCategory, setActiveCategory] = useState<string>("All Products");
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
+  };
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+    if (category === "All Products") {
+      setSelectedCategory("");
+    } else {
+      setSelectedCategory(category);
+    }
   };
 
   return (
@@ -80,9 +102,9 @@ const Sidebar = () => {
         <h2 className="font-semibold text-lg">Show all categories</h2>
         <span>
           {isExpanded ? (
-            <GoTriangleDown className="text-2xl"/>
+            <GoTriangleDown className="text-2xl" />
           ) : (
-            <GoTriangleUp className="text-2xl"/>
+            <GoTriangleUp className="text-2xl" />
           )}
         </span>
       </div>
@@ -90,15 +112,19 @@ const Sidebar = () => {
       {/* Category List */}
       {isExpanded && (
         <ul className="space-y-2">
-          <li>All Products (98)</li>
-          <li>Artificial Grass (1)</li>
-          <li>Bonsai Plant (2)</li>
-          <li>Flower Plants (10)</li>
-          <li>Foreign Plants (1)</li>
-          <li>Herbal Plants (1)</li>
-          <li>Outdoor Plants (1)</li>
-          <li>Woody Plants (3)</li>
-          <li>Fruit Plants (90)</li>
+          {categories.map((category) => (
+            <li
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+              className={`cursor-pointer p-2 rounded-lg hover:text-lg ${
+                activeCategory === category
+                  ? "bg-[#e4e8e5] font-semibold text-lg"
+                  : "bg-transparent "
+              }`}
+            >
+              {category}
+            </li>
+          ))}
         </ul>
       )}
     </div>
