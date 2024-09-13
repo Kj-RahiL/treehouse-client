@@ -8,6 +8,7 @@ import router from "./routes/routes.tsx";
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GlobalWarning from "./utils/GlobalWarning.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
       <HelmetProvider>
         <div className="max-w-screen mx-auto">
           <RouterProvider router={router} />
+          <GlobalWarning/>
           <ToastContainer position="top-right" autoClose={3000} />
         </div>
       </HelmetProvider>

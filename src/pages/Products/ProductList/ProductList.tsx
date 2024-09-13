@@ -29,7 +29,7 @@ const ProductListing = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {data?.data?.map((product: TProduct) => (
-          <div key={product._id} className="border rounded-lg p-4 shadow-lg">
+          <div key={product._id} className="border rounded-lg p-4 shadow-md shadow-[#083214] hover:scale-95 transition duration-500">
             <Link to={`/productDetails/${product._id}`}>
               <img
                 src={product.image}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CiEdit } from "react-icons/ci";
 import {
   useGetProductsQuery,

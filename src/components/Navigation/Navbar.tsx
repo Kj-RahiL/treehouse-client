@@ -148,7 +148,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <BsSearch className="text-base md:text-2xl font-thin mr-4 md:mr-10 " />
-        <Link to='/checkout' className="relative mr-2 md:mr-10 p-2">
+        <Link to='/proceed' className="relative mr-2 md:mr-10 p-2">
           <BsCart className="text-base md:text-2xl" />
           <span className="absolute -right-1 -top-2 flex size-5 items-center justify-center rounded-full bg-red-500 text-center text-[10px] text-white">
             {products.length}

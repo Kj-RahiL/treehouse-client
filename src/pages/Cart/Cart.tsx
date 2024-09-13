@@ -2,13 +2,30 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import CartItem from "./CartItem";
 import { clearCart } from "../../redux/features/cartSlice";
+import { useEffect } from "react";
 const Cart = () => {
-  const dispatch = useAppDispatch()
-  const {products, total, subTotal, shipping} = useAppSelector((store) => store.cart);
+  const dispatch = useAppDispatch();
+  const { products, total, subTotal, shipping } = useAppSelector(
+    (store) => store.cart
+  );
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (products.length > 0) {
+        event.preventDefault();
+        event.returnValue = ""; // This is required to trigger the browser's confirmation dialog
+      }
+    };
 
-  const handleClearCart = ()=>{
-    dispatch(clearCart())
-  }
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [products]);
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-8 lg:flex lg:space-x-12 pt-20">
@@ -47,12 +64,15 @@ const Cart = () => {
 
         {/* Cart Buttons */}
         <div className="mt-8 flex justify-between">
-          <Link to='/product'>
+          <Link to="/product">
             <button className="bg-gray-200 text-gray-700 py-2 px-6 rounded-lg">
               Continue Shopping
             </button>
           </Link>
-          <button onClick={()=> handleClearCart()} className="bg-green-500 text-white py-2 px-6 rounded-lg">
+          <button
+            onClick={() => handleClearCart()}
+            className="bg-green-500 text-white py-2 px-6 rounded-lg"
+          >
             Clear Cart
           </button>
         </div>
@@ -83,18 +103,18 @@ const Cart = () => {
 
           {/* Payment Buttons */}
           <div className="mt-6">
-            <button className="w-full bg-blue-600 text-white py-2 rounded-lg mb-4">
-              Checkout
-            </button>
-            <button className="w-full bg-yellow-400 text-black py-2 rounded-lg mb-4">
-              Checkout with Amazon Pay
-            </button>
-            <button className="w-full bg-gray-800 text-white py-2 rounded-lg mb-4">
-              Checkout with PayPal
-            </button>
-            <button className="w-full bg-purple-600 text-white py-2 rounded-lg">
-              Checkout with Klarna
-            </button>
+            <Link to="/proceed/checkout">
+              <button
+                className={`w-full text-white py-2 rounded-lg mb-4  ${
+                  products.length > 0
+                    ? "bg-green-600 text-white hover:bg-green-700"
+                    : "bg-gray-400 text-gray-700 cursor-not-allowed"
+                }`}
+                disabled={products.length === 0}
+              >
+                Proceed to Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>
